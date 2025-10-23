@@ -22,6 +22,7 @@ public:
 private slots:
     void on_pushButton_clicked();
     void getText(QString text);
+    void press_Note();
 
 private:
     Ui::MainWidget *ui;

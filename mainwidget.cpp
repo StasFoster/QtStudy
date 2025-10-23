@@ -1,6 +1,7 @@
 #include "mainwidget.h"
 #include "ui_mainwidget.h"
 #include "second.h"
+#include "edit.h"
 #include <QLabel>
 #include <QFrame>
 
@@ -26,11 +27,24 @@ void MainWidget::on_pushButton_clicked()
 }
 
 void MainWidget::getText(QString text){
-    QFrame *box = new QFrame();
+    QPushButton *box = new QPushButton();
+    QObject::connect(box,&QPushButton::clicked,this, &MainWidget::press_Note);
     box->setMinimumHeight(60);
-    box->setMidLineWidth(60);
+    box->setMinimumWidth(60);
     box->setStyleSheet("background-color:green");
     QLabel *t = new QLabel(text, box);
     ui->Conteiner->addWidget(box);
 }
+
+void MainWidget::press_Note(){
+    Edit *w = new Edit();
+    w->setMinimumHeight(300);
+    w->setMinimumWidth(300);
+
+    w->show();
+
+}
+
+
+
 
